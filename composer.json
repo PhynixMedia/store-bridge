@@ -1,0 +1,36 @@
+{
+    "name": "phynixmedia/store-bridge-php",
+    "type": "library",
+    "description": "For sending and fetching store records | Implementation with all feramy web apps",
+    "keywords": ["Orlmy","store", "composer", "package"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "David Adebayo",
+            "email": "david.adebayo@phynixmedia.co.uk"
+        }
+    ],
+    "require": {
+        "phpunit/phpunit": "8.5",
+        "guzzlehttp/guzzle":"*",
+		"php": ">=7.3",
+        "ext-json": "*"
+    },
+    "require-dev": {
+		"phpunit/phpunit": "8.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "Store\\": "src/",
+            "Phynixmedia\\Store\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "classmap": [
+            "tests/"
+        ],
+        "psr-4": {
+            "Test\\":"tests/"
+        }
+    }
+}
