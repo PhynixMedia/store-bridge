@@ -59,19 +59,17 @@ var_dump($response);
 http://localhost:8000/api/v4
 ```
 
-> List of Endpoints to call
+> List of Loadable Sections
 ```
-    1. get products             /get/products
-    2. get product by id        /get/product/{id}
-    3. search products          /search/products
-    4. get category             /get/category
-    5. get category by id       /get/category/{id}
-    6. get products by category /get/products/category/{id}
-    7. place order              /place/order
-    8. get orders               /get/order
-    9. search orders            /search/orders
-    10. get customers           /get/customer/{id}
-    11. set customer            /customer/save
+     /**
+     * Class constants
+     */
+     const PRODUCTS_BRIDGE   = 'products';
+     const CATEGORY_BRIDGE   = 'category';
+     const CUSTOMERS_BRIDGE  = 'customers';
+     const DEALS_BRIDGE      = 'deals';
+     const ORDERS_BRIDGE     = 'orders';
+     const COUPONS_BRIDGE    = 'coupons';
 
 ```
 
