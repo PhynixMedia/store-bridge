@@ -19,11 +19,16 @@ http://localhost:8000/oauth/token
         FERAMY_SECRET = 'k8Rz59sC3JGiMYBG3lAZd0ADaWFoCM7s6UZOdjO7'
 ```
 
+
 > Usage: 
 ```
+
+Import:
+use Phynixmedia\Store\Store;
+
 Initialize the config:
 
-$response = $this->store::config([
+$response = Store::config([
     'publish'   => FERAMY_PUBLISH,
     'secret'    => FERAMY_SECRET
 ]);
@@ -39,7 +44,7 @@ This uses by default client_credentials grant type
 
 > To Load a product section or category etc
 ```
-$products = $this->store->load($this->token, StoreConstants::PRODUCTS_BRIDGE);
+$products = Store::load($this->token, StoreConstants::PRODUCTS_BRIDGE);
 $response = $products->all([
      'companyid'     => 1,
      'outletid'      => 0 // optional -> only use if you want to pull products by outlet
