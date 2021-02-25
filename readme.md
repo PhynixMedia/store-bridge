@@ -13,14 +13,19 @@
 http://localhost:8000/oauth/token 
 ```
 
+> Demo Credential:
+```
+        FERAMY_PUBLISH = '92b58b8f-4943-4a9c-bb4b-bb4b41ec6fbd',
+        FERAMY_SECRET = 'k8Rz59sC3JGiMYBG3lAZd0ADaWFoCM7s6UZOdjO7'
+```
 
 > Usage: 
 ```
 Initialize the config:
 
 $response = $this->store::config([
-    'publish'   => '92b58b8f-4943-4a9c-bb4b-bb4b41ec6fbd',
-    'secret'    => 'k8Rz59sC3JGiMYBG3lAZd0ADaWFoCM7s6UZOdjO7'
+    'publish'   => FERAMY_PUBLISH,
+    'secret'    => FERAMY_SECRET
 ]);
 
 $response->access_token
