@@ -1,9 +1,8 @@
 <?php
 
-namespace Phynixmedia\Store;
+namespace Phynixmedia\Store\Sections;
 
-use Phynixmedia\Store\Parser\OrderResponseParser;
-use Phynixmedia\Store\Core\Store;
+use Phynixmedia\Store\Core\App;
 use Phynixmedia\Store\Core\StoreConstants;
 use Phynixmedia\Store\Responses\Parsers\ProductResponseParser;
 
@@ -12,15 +11,15 @@ use Phynixmedia\Store\Responses\Parsers\ProductResponseParser;
  * Class Orders
  * @package Phynixmedia\Store
  */
-class Products extends Store
+class Products extends App
 {
 
     /**
      * Products constructor.
      */
-    public function __construct()
+    public function __construct(string $authorizer)
     {
-        parent::__construct();
+        parent::__construct( $authorizer);
     }
 
     public function all(array $params)

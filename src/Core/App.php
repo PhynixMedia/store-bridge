@@ -2,10 +2,9 @@
 
 namespace Phynixmedia\Store\Core;
 
-use Phynixmedia\Store\StoreRest;
+use Phynixmedia\Store\Core\StoreRest;
 
-
-abstract class Store
+abstract class App
 {
 
     /**
@@ -18,9 +17,9 @@ abstract class Store
     /**
      * Store constructor.
      */
-    public function __construct()
+    public function __construct(string $authorizer)
     {
-        $this->rest = new StoreRest();
+        $this->rest = new StoreRest($authorizer);
     }
 
     public function setPath($path, ...$path_array){

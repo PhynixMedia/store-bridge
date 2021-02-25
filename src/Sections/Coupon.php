@@ -1,8 +1,8 @@
 <?php
 
-namespace Phynixmedia\Store;
+namespace Phynixmedia\Store\Sections;
 
-use Phynixmedia\Store\Core\Store;
+use Phynixmedia\Store\Core\App;
 use Phynixmedia\Store\Core\StoreConstants;
 use Phynixmedia\Store\Responses\Parsers\CouponsResponseParser;
 
@@ -10,15 +10,15 @@ use Phynixmedia\Store\Responses\Parsers\CouponsResponseParser;
  * Class Category
  * @package Phynixmedia\Store
  */
-class Coupon extends Store
+class Coupon extends App
 {
 
     /**
      * Coupon constructor.
      */
-    public function __construct()
+    public function __construct(string $authorizer)
     {
-        parent::__construct();
+        parent::__construct( $authorizer);
     }
 
     public function all(){

@@ -21,7 +21,6 @@
     },
     "autoload": {
         "psr-4": {
-            "Store\\": "src/",
             "Phynixmedia\\Store\\": "src/"
         }
     },
