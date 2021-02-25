@@ -2,7 +2,6 @@
 
 namespace Phynixmedia\Store;
 
-use Phynixmedia\Store\Core\Authorizer;
 use Phynixmedia\Store\Traits\Config;
 /**
  * Class Store
@@ -15,7 +14,7 @@ class Store
 
     /**
      * Load selected class
-     * @param Authorizer $authorizer
+     * @param string $token
      * @param string $key
      * @return mixed|null
      */
