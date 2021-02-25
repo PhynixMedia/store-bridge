@@ -49,20 +49,6 @@ var_dump($response);
 
 ```
 
-> Configuration Parameters
-```
-    1. CLIENT_ID=3
-    2. CLIENT_SECRET=NwGuzZ4yKvAJ2jpzQPilFp6apbT5cr4S275B4DnP
-    3. GRANT_TYPE=client_credentials
-    4. SCOPE=*
-
-{
-   "grant_type": "client_credentials",
-   "client_id": "3",
-   "scope": "*",
-   "client_secret": "NwGuzZ4yKvAJ2jpzQP4S275B4DnP"
-}
-```
 >  Endpoint base
 ```
 http://localhost:8000/api/v4
