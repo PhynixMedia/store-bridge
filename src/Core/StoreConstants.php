@@ -31,11 +31,21 @@ class StoreConstants
     const GET_SINGLE_PRODUCT                = StoreConstants::API_END_POINT . '/products/get'; // companyid, productid, outletid?
     const SEARCH_PRODUCTS                   = StoreConstants::API_END_POINT . '/products/search'; // missing
 
+
+    /**
+     * SEARCH WITH FILTERS
+     */
+    const FIND_PRODUCTS_BY_CONDITION    = StoreConstants::API_END_POINT . '/products/list/by/condition';
+    const SEARCH_VIEWED_PRODUCTS        = StoreConstants::API_END_POINT . '/products/list/viewed';
+    const SEARCH_RELATED_PRODUCTS       = StoreConstants::API_END_POINT . '/products/list/related';
+    const SEARCH_PRODUCTS_BRAND         = StoreConstants::API_END_POINT . '/products/brands/list';
+    const SEARCH_PRODUCTS_BY_BRAND      = StoreConstants::API_END_POINT . '/products/brands/list/items';
+
     /**
      * CATEGORY ENDPOINTS
      */
-    const GET_ALL_CATEGORY          = StoreConstants::API_END_POINT . '/products/category/list';
-    const GET_PRODUCTS_BY_CATEGORY  = StoreConstants::API_END_POINT . '/products/category/list/items';
+    const GET_ALL_CATEGORY              = StoreConstants::API_END_POINT . '/products/category/list';
+    const GET_PRODUCTS_BY_CATEGORY      = StoreConstants::API_END_POINT . '/products/category/list/items';
 
     /**
      * CUSTOMER
