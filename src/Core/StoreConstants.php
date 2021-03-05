@@ -31,7 +31,6 @@ class StoreConstants
     const GET_SINGLE_PRODUCT                = StoreConstants::API_END_POINT . '/products/get'; // companyid, productid, outletid?
     const SEARCH_PRODUCTS                   = StoreConstants::API_END_POINT . '/products/search'; // missing
 
-
     /**
      * SEARCH WITH FILTERS
      */
@@ -50,11 +49,11 @@ class StoreConstants
     /**
      * CUSTOMER
      */
-
     const AUTH_USER_LOGIN               = StoreConstants::API_END_POINT . '/customers/auth/login';
     const CREATE_CUSTOMER               = StoreConstants::API_END_POINT . '/customers/create/account';
     const CREATE_CUSTOMER_ADDRESS       = StoreConstants::API_END_POINT . '/customers/create/address';
     const RESET_CUSTOMER_PASSWORD       = StoreConstants::API_END_POINT . '/customers/reset/password';
+    const GET_CUSTOMER                  = StoreConstants::API_END_POINT . '/customers/get/record';
 
     /**
      * ORDER ENDPOINTS
