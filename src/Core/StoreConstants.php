@@ -8,7 +8,7 @@ class StoreConstants
     /**
      * Endpoint Constants
      */
-    const API_BASE_URL = 'https://app.amytastykitchen.co.uk';
+    const API_BASE_URL = 'https://app.feramy.com';
     // const API_BASE_URL = 'http://localhost:8000';
     const API_END_POINT = '/api/v4';
     const API_OAUTH2_POINT = '/oauth/token';
