@@ -41,7 +41,7 @@ class CustomerResponseParser
 
         $this->response = new Response();
 
-        $this->response->{'customer'} = $response->getBody()->getContents();
+        $this->response->customer = $response->getBody()->getContents();
     }
 
 

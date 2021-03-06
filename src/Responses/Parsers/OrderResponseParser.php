@@ -27,7 +27,7 @@ class OrderResponseParser
 
         $this->response = new Response();
 
-        $this->response->{'orders'} = $response->getBody()->getContents();
+        $this->response->orders = $response->getBody()->getContents();
     }
 
 

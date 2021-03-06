@@ -27,7 +27,7 @@ class ProductResponseParser
 
          $this->response = new Response();
 
-         $this->response->{'products'} = $response->getBody()->getContents();
+         $this->response->products = $response->getBody()->getContents();
     }
 
     public  function getResponse(): ?Response

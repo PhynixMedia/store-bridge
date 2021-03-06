@@ -27,7 +27,7 @@ class DealsResponseParser
 
         $this->response = new Response();
 
-        $this->response->{'category'} = $response->getBody()->getContents();
+        $this->response->deals = $response->getBody()->getContents();
     }
 
 
