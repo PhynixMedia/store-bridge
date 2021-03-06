@@ -26,20 +26,9 @@ class ResponseParser
             throw new UnexpectedStatusCodeException($response);
         }
 
-        try
-        {
-            $body = json_decode($response->getBody()->getContents(), true, 512, JSON_THROW_ON_ERROR);
-        } catch (Exception $e) {
-
-            throw new UnexpectedJsonException($response);
-        }
-
         $this->response = new Response();
 
-        foreach($body as $key => $value)
-        {
-            $this->response->{$key} = $value;
-        }
+        $this->response->bearer = $response->getBody()->getContents();
     }
 
     public  function getResponse(): ?Response
