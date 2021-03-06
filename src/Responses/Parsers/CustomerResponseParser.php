@@ -27,21 +27,21 @@ class CustomerResponseParser
 
         $bodyString = $response->getBody()->getContents();
 
-        try
-        {
-            $body = json_decode($bodyString, false, 512, JSON_THROW_ON_ERROR);
-        } catch (Exception $e) {
+        // try
+        // {
+        //     $body = json_decode($bodyString, false, 512, JSON_THROW_ON_ERROR);
+        // } catch (Exception $e) {
 
-            throw new UnexpectedJsonException($response);
-        }
+        //     throw new UnexpectedJsonException($response);
+        // }
 
-        if(!property_exists($body, 'data')){
-            throw new UnexpectedJsonException($response);
-        }
+        // if(!property_exists($body, 'data')){
+        //     throw new UnexpectedJsonException($response);
+        // }
 
         $this->response = new Response();
 
-        $this->response->{'customer'} = $body->data;
+        $this->response->{'customer'} = $response->getBody()->getContents();
     }
 
 

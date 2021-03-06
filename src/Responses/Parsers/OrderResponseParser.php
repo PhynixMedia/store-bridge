@@ -25,25 +25,9 @@ class OrderResponseParser
             throw new UnexpectedStatusCodeException($response);
         }
 
-        $bodyString = $response->getBody()->getContents();
-
-//        var_dump($bodyString);
-
-        try
-        {
-            $body = json_decode($bodyString, false, 512, JSON_THROW_ON_ERROR);
-        } catch (Exception $e) {
-
-            throw new UnexpectedJsonException($response);
-        }
-
-        if(!property_exists($body, 'data')){
-            throw new UnexpectedJsonException($response);
-        }
-
         $this->response = new Response();
 
-        $this->response->{'orders'} = $body->data;
+        $this->response->{'orders'} = $response->getBody()->getContents();
     }
 
 

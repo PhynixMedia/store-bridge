@@ -25,23 +25,9 @@ class DealsResponseParser
             throw new UnexpectedStatusCodeException($response);
         }
 
-        $bodyString = $response->getBody()->getContents();
-
-        try
-        {
-            $body = json_decode($bodyString, false, 512, JSON_THROW_ON_ERROR);
-        } catch (Exception $e) {
-
-            throw new UnexpectedJsonException($response);
-        }
-
-        if(!property_exists($body, 'data')){
-            throw new UnexpectedJsonException($response);
-        }
-
         $this->response = new Response();
 
-        $this->response->{'category'} = $body->data;
+        $this->response->{'category'} = $response->getBody()->getContents();
     }
 
 
