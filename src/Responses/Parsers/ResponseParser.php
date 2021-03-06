@@ -28,7 +28,7 @@ class ResponseParser
 
         try
         {
-            $body = json_decode($response->getBody(), true, 512, JSON_THROW_ON_ERROR);
+            $body = json_decode($response->getBody()->getContents(), true, 512, JSON_THROW_ON_ERROR);
         } catch (Exception $e) {
 
             throw new UnexpectedJsonException($response);
