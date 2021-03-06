@@ -41,8 +41,8 @@ class Authorizer
             $response = $this->rest->post(StoreConstants::API_OAUTH2_POINT, $params);
             return (new ResponseParser($response))->getResponse();
         } catch (\Exception $e) {
-            //      return (object) ['error' => $e->getMessage()];
-            return (object)['error' => 'something happened'];
+            return (object) ['error' => $e->getMessage()];
+            // return (object)['error' => 'something happened'];
         }
     }
 }
