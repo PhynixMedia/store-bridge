@@ -43,6 +43,16 @@ class Customer extends App
         }
     }
 
+    public function enroll(array $params)
+    {
+        try {
+            $response = $this->rest->post(StoreConstants::ENROLL_CUSTOMER, $params);
+            return (new CustomerResponseParser($response))->getResponse();
+        } catch (\Exception $e) {
+            return $e->getMessage();
+        }
+    }
+
     public function fetch(array $params)
     {
         try {

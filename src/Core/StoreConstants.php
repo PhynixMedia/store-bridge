@@ -54,6 +54,7 @@ class StoreConstants
     const CREATE_CUSTOMER_ADDRESS       = StoreConstants::API_END_POINT . '/customers/create/address';
     const RESET_CUSTOMER_PASSWORD       = StoreConstants::API_END_POINT . '/customers/reset/password';
     const GET_CUSTOMER                  = StoreConstants::API_END_POINT . '/customers/get/record';
+    const ENROLL_CUSTOMER               = StoreConstants::API_END_POINT . '/auto/enroll/checkout';
 
     /**
      * ORDER ENDPOINTS
