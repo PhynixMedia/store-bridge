@@ -21,6 +21,16 @@ class Vouchers extends App
         parent::__construct( $authorizer);
     }
 
+    public function get(array $params){
+        try {
+            
+            $response = $this->rest->post(StoreConstants::GET_POINTS, $params);
+            return (new VoucherResponseParser($response))->getResponse();
+        } catch (\Exception $e) {
+            return $e->getMessage();
+        }
+    }
+
     public function convert(array $params){
         try {
             
