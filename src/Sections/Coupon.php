@@ -21,9 +21,9 @@ class Coupon extends App
         parent::__construct( $authorizer);
     }
 
-    public function all(){
+    public function all(array $params){
         try {
-            $response = $this->rest->get(StoreConstants::GET_COUPONS);
+            $response = $this->rest->post(StoreConstants::GET_COUPONS, $params);
             return (new CouponsResponseParser($response))->getResponse();
         } catch (\Exception $e) {
             return $e->getMessage();

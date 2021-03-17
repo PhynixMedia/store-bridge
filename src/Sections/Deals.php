@@ -21,10 +21,10 @@ class Deals extends App
         parent::__construct( $authorizer);
     }
 
-    public function all(){
+    public function all(array $params){
         try {
             
-            $response = $this->rest->get(StoreConstants::GET_DEALS);
+            $response = $this->rest->post(StoreConstants::GET_DEALS, $params);
             return (new DealsResponseParser($response))->getResponse();
         } catch (\Exception $e) {
             return $e->getMessage();

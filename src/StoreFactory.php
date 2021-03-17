@@ -11,6 +11,7 @@ use Phynixmedia\Store\Sections\Customer;
 use Phynixmedia\Store\Sections\Deals;
 use Phynixmedia\Store\Sections\Orders;
 use Phynixmedia\Store\Sections\Products;
+use Phynixmedia\Store\Sections\Vouchers;
 
 use Phynixmedia\Store\Exceptions\StoreException;
 use Phynixmedia\Store\Traits\ResponseTrait;
@@ -40,6 +41,7 @@ class StoreFactory
             StoreConstants::DEALS_BRIDGE        => [$this, 'createDeals'],
             StoreConstants::ORDERS_BRIDGE       => [$this, 'createOrders'],
             StoreConstants::COUPONS_BRIDGE      => [$this, 'createCoupons'],
+            StoreConstants::VOUCHER_BRIDGE      => [$this, 'createVoucher'],
         ], $callbacks);
     }
 
@@ -91,6 +93,11 @@ class StoreFactory
     public function createCoupons(string $authorizer){
 
         return new Coupon($authorizer);
+    }
+
+    public function createVoucher(string $authorizer){
+
+        return new Vouchers($authorizer);
     }
 
 

@@ -26,8 +26,6 @@ class CategoryResponseParser
             throw new UnexpectedStatusCodeException($response);
         }
 
-        // $data = $response->getBody()->getContents();
-
         $this->response = new Response();
 
         $this->response->category = $response->getBody()->getContents();

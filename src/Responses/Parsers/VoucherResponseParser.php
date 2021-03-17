@@ -8,7 +8,7 @@ use Psr\Http\Message\ResponseInterface;
 use Phynixmedia\Store\Responses\Response;
 use Exception;
 
-class CouponsResponseParser
+class VoucherResponseParser
 {
 
     private $response;
@@ -27,7 +27,7 @@ class CouponsResponseParser
 
         $this->response = new Response();
 
-        $this->response->coupon = $response->getBody()->getContents();
+        $this->response->voucher = $response->getBody()->getContents();
     }
 
 

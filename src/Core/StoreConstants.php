@@ -23,6 +23,7 @@ class StoreConstants
     const DEALS_BRIDGE      = 'deals';
     const ORDERS_BRIDGE     = 'orders';
     const COUPONS_BRIDGE    = 'coupons';
+    const VOUCHER_BRIDGE    = 'vouchers';
 
     /**
      * PRODUCTS ENDPOINTS
@@ -73,6 +74,13 @@ class StoreConstants
      * DEALS
      */
     const GET_DEALS     = StoreConstants::API_END_POINT . '/deals/available';
+
+    /**
+     * VOUCHERS
+     */
+    const GET_POINTS            = StoreConstants::API_END_POINT . '/rewards/points';
+    const CONVERT_POINTS        = StoreConstants::API_END_POINT . '/rewards/points/convert';
+    const GET_VOUCHER_HISTORY   = StoreConstants::API_END_POINT . '/rewards/points/list';
 
     /**
      * EXCEPTIONS
