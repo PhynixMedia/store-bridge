@@ -45,7 +45,7 @@ class StoreRest
         try
         {
 
-            return $this->client->get(StoreConstants::API_BASE_URL . $path);
+            return $this->client->get(StoreConstants::API_BASE_URL . $path . self::pager($paginate));
         }catch(\GuzzleHttp\Exception\ClientException $e)
         {
             throw new UnexpectedStatusCodeException($e->getResponse());
@@ -63,13 +63,12 @@ class StoreRest
      * @return ResponseInterface|null
      * @throws UnexpectedStatusCodeException
      */
-    public function post(string $path, $params = []): ?ResponseInterface
+    public function post(string $path, $params = [], int $paginate = 0): ?ResponseInterface
     {
 
         try
         {
-
-            return $this->client->post(StoreConstants::API_BASE_URL . $path,
+            return $this->client->post(StoreConstants::API_BASE_URL . $path . self::pager($paginate),
             [
                 "headers" => self::setHeaders($this->token),
                 "body" => json_encode($params)
@@ -84,5 +83,15 @@ class StoreRest
         }catch(\Exception $e){
             throw new UnexpectedStatusCodeException($e->getResponse());
         }
+    }
+
+    private static function pager(int $paginate = 0){
+
+        $pager = '';
+        if($paginate > 0)
+        {
+            $pager = '?page='.$paginate;
+        }
+        return $pager;
     }
 }
