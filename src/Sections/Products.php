@@ -22,30 +22,30 @@ class Products extends App
         parent::__construct( $authorizer);
     }
 
-    public function all(array $params)
+    public function all(array $params, int $pager = 0)
     {
         try {
-            $response = $this->rest->post(StoreConstants::GET_ALL_PRODUCTS, $params);
+            $response = $this->rest->post(StoreConstants::GET_ALL_PRODUCTS, $params, $pager);
             return (new ProductResponseParser($response))->getResponse();
         } catch (\Exception $e) {
             return $e->getMessage();
         }
     }
 
-    public function get(array $params)
+    public function get(array $params, int $pager = 0)
     {
         try {
-            $response = $this->rest->post(StoreConstants::GET_SINGLE_PRODUCT, $params);
+            $response = $this->rest->post(StoreConstants::GET_SINGLE_PRODUCT, $params, $pager);
             return (new ProductResponseParser($response))->getResponse();
         } catch (\Exception $e) {
             return $e->getMessage();
         }
     }
 
-    public function search(array $params)
+    public function search(array $params, int $pager = 0)
     {
         try {
-            $response = $this->rest->post(StoreConstants::SEARCH_PRODUCTS, $params);
+            $response = $this->rest->post(StoreConstants::SEARCH_PRODUCTS, $params, $pager);
             return (new ProductResponseParser($response))->getResponse();
         } catch (\Exception $e) {
             return $e->getMessage();
@@ -57,9 +57,9 @@ class Products extends App
      * based on which parameter was passed in
      * latest, sales, newarrival
      */
-    public function find(array $params){
+    public function find(array $params, int $pager = 0){
         try {
-            $response = $this->rest->post(StoreConstants::FIND_PRODUCTS_BY_CONDITION, $params);
+            $response = $this->rest->post(StoreConstants::FIND_PRODUCTS_BY_CONDITION, $params, $pager);
             return (new ProductResponseParser($response))->getResponse();
         } catch (\Exception $e) {
             return $e->getMessage();
@@ -70,9 +70,9 @@ class Products extends App
      * set views with viewer's ip if data is passed
      * else, returned products viewed previously by user
      */
-    public function viewed(array $params){
+    public function viewed(array $params, int $pager = 0){
         try {
-            $response = $this->rest->post(StoreConstants::SEARCH_VIEWED_PRODUCTS, $params);
+            $response = $this->rest->post(StoreConstants::SEARCH_VIEWED_PRODUCTS, $params, $pager);
             return (new ProductResponseParser($response))->getResponse();
         } catch (\Exception $e) {
             return $e->getMessage();
@@ -83,9 +83,9 @@ class Products extends App
      * This fetch related records to the records selected
      * when user click to view product details
      */
-    public function related(array $params){
+    public function related(array $params, int $pager = 0){
         try {
-            $response = $this->rest->post(StoreConstants::SEARCH_RELATED_PRODUCTS, $params);
+            $response = $this->rest->post(StoreConstants::SEARCH_RELATED_PRODUCTS, $params, $pager);
             return (new ProductResponseParser($response))->getResponse();
         } catch (\Exception $e) {
             return $e->getMessage();
@@ -95,9 +95,9 @@ class Products extends App
     /**
      * This return all available product brands
      */
-    public function brands(array $params){
+    public function brands(array $params, int $pager = 0){
         try {
-            $response = $this->rest->post(StoreConstants::SEARCH_PRODUCTS_BRAND, $params);
+            $response = $this->rest->post(StoreConstants::SEARCH_PRODUCTS_BRAND, $params, $pager);
             return (new ProductResponseParser($response))->getResponse();
         } catch (\Exception $e) {
             return $e->getMessage();
@@ -107,9 +107,9 @@ class Products extends App
     /**
      * Call with Ajax, to serach for proucts based on the brand
      */
-    public function searchByBrands(array $params){
+    public function searchByBrands(array $params, int $pager = 0){
         try {
-            $response = $this->rest->post(StoreConstants::SEARCH_PRODUCTS_BY_BRAND, $params);
+            $response = $this->rest->post(StoreConstants::SEARCH_PRODUCTS_BY_BRAND, $params, $pager);
             return (new ProductResponseParser($response))->getResponse();
         } catch (\Exception $e) {
             return $e->getMessage();

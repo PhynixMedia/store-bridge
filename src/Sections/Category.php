@@ -21,10 +21,10 @@ class Category extends App
         parent::__construct( $authorizer);
     }
 
-    public function all(array $params)
+    public function all(array $params, int $pager = 0)
     {
         try {
-            $response = $this->rest->post(StoreConstants::GET_ALL_CATEGORY, $params);
+            $response = $this->rest->post(StoreConstants::GET_ALL_CATEGORY, $params, $pager);
             // var_dump($response);
             return (new CategoryResponseParser($response))->getResponse();
         } catch (\Exception $e) {
@@ -34,11 +34,11 @@ class Category extends App
         }
     }
 
-    public function getProducts(array $params)
+    public function getProducts(array $params, int $pager = 0)
     {
         try {
 
-            $response = $this->rest->post(StoreConstants::GET_PRODUCTS_BY_CATEGORY, $params);
+            $response = $this->rest->post(StoreConstants::GET_PRODUCTS_BY_CATEGORY, $params, $pager);
             return (new CategoryResponseParser($response))->getResponse();
         } catch (\Exception $e) {
 
