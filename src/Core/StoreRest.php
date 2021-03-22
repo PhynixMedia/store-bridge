@@ -45,7 +45,7 @@ class StoreRest
         try
         {
 
-            return $this->client->get(StoreConstants::API_BASE_URL . $path . self::pager($paginate));
+            return $this->client->get(StoreConstants::getHost() . $path . self::pager($paginate));
         }catch(\GuzzleHttp\Exception\ClientException $e)
         {
             throw new UnexpectedStatusCodeException($e->getResponse());
@@ -68,7 +68,35 @@ class StoreRest
 
         try
         {
-            return $this->client->post(StoreConstants::API_BASE_URL . $path . self::pager($paginate),
+            return $this->client->post(StoreConstants::getHost() . $path . self::pager($paginate),
+            [
+                "headers" => self::setHeaders($this->token),
+                "body" => json_encode($params)
+            ]);
+
+        }catch(\GuzzleHttp\Exception\ClientException $e)
+        {
+            throw new StoreUnableToConnectException($e->getResponse());
+        }catch(\GuzzleHttp\Exception\ConnectException $e)
+        {
+            throw new StoreUnableToConnectException(new Response());
+        }catch(\Exception $e){
+            throw new UnexpectedStatusCodeException($e->getResponse());
+        }
+    }
+
+    /**
+     * @param string $path
+     * @param array $params
+     * @return ResponseInterface|null
+     * @throws UnexpectedStatusCodeException
+     */
+    public function put(string $path, $params = [], int $paginate = 0): ?ResponseInterface
+    {
+
+        try
+        {
+            return $this->client->put(StoreConstants::getHost() . $path . self::pager($paginate),
             [
                 "headers" => self::setHeaders($this->token),
                 "body" => json_encode($params)

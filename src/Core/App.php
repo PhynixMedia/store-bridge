@@ -31,4 +31,18 @@ abstract class App
         return strtr($path, $pair);
     }
 
+    function parser($response, $key){
+
+        try{
+
+            $data = json_decode($response->$key);
+            return $data->data;
+        }catch(\Exception $e){
+            return [
+                "error"     => "parser failed",
+                "reason"    => $e->getMessage()
+            ];
+        }
+    }
+
 }
