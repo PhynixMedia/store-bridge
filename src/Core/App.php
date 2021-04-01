@@ -3,6 +3,7 @@
 namespace Phynixmedia\Store\Core;
 
 use Phynixmedia\Store\Core\StoreRest;
+use Phynixmedia\Store\Core\LengthAwarePaginator;
 
 abstract class App
 {
@@ -31,7 +32,7 @@ abstract class App
         return strtr($path, $pair);
     }
 
-    function parser($response, $key){
+    public function parser($response, $key){
 
         try{
 
@@ -43,6 +44,11 @@ abstract class App
                 "reason"    => $e->getMessage()
             ];
         }
+    }
+
+    public function paginator($list, $route, array $path_data = []){
+
+        return new LengthAwarePaginator($list, $route, $path_data);
     }
 
 }
