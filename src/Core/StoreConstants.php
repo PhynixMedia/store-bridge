@@ -17,9 +17,9 @@ class StoreConstants
     public static function getHost(){
 
         if(in_array($_SERVER['REMOTE_ADDR'], ['127.0.0.1', "::1"])){
-            return MedicConstants::API_LOCAL_BASE_URL;
+            return StoreConstants::API_LOCAL_BASE_URL;
         }
-        return MedicConstants::API_BASE_URL;
+        return StoreConstants::API_BASE_URL;
     }
 
     /**
