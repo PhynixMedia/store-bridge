@@ -68,6 +68,7 @@ class StoreConstants
     /**
      * ORDER ENDPOINTS
      */
+    const ORDER_CHECKOUT    =   StoreConstants::API_END_POINT . '/orders/checkout';
     const PLACE_ORDER       =   StoreConstants::API_END_POINT . '/orders/create';
     const SEARCH_ORDERS     =   StoreConstants::API_END_POINT . '/orders/search';
     const GET_USER_ORDERS   =   StoreConstants::API_END_POINT . '/orders/list';

@@ -42,6 +42,24 @@ class Orders extends App
     }
 
     /**
+     * @param $params
+     * @return |null
+     *
+     * Place order parmaters from cart checkout
+     */
+    public function checkout(array $params)
+    {
+        try {
+
+            $response = $this->rest->post(StoreConstants::ORDER_CHECKOUT, $params);
+            return (new OrderResponseParser($response))->getResponse();
+        } catch (\Exception $e) {
+            return $e->getMessage();
+        }
+    }
+
+
+    /**
      * @param string $userid
      * @param string $orderid
      * @return |null
