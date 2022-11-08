@@ -25,24 +25,18 @@ class Category extends App
     {
         try {
             $response = $this->rest->post(StoreConstants::GET_ALL_CATEGORY, $params, $pager);
-            // var_dump($response);
             return (new CategoryResponseParser($response))->getResponse();
         } catch (\Exception $e) {
-
-            // var_dump($e->getMessage());
             return $e->getMessage();
         }
     }
 
-    public function getProducts(array $params, int $pager = 0)
+    public function get(array $params, int $pager = 0)
     {
         try {
-
-            $response = $this->rest->post(StoreConstants::GET_PRODUCTS_BY_CATEGORY, $params, $pager);
+            $response = $this->rest->post(StoreConstants::GET_SINGLE_CATEGORY, $params, $pager);
             return (new CategoryResponseParser($response))->getResponse();
         } catch (\Exception $e) {
-
-            // var_dump($e->getMessage());
             return $e->getMessage();
         }
     }

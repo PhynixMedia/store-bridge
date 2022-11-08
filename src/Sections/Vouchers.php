@@ -21,10 +21,10 @@ class Vouchers extends App
         parent::__construct( $authorizer);
     }
 
-    public function get(array $params){
+    public function points(array $params){
         try {
             
-            $response = $this->rest->post(StoreConstants::GET_POINTS, $params);
+            $response = $this->rest->post(StoreConstants::GET_USER_POINTS, $params);
             return (new VoucherResponseParser($response))->getResponse();
         } catch (\Exception $e) {
             return $e->getMessage();
@@ -34,17 +34,7 @@ class Vouchers extends App
     public function convert(array $params){
         try {
             
-            $response = $this->rest->post(StoreConstants::CONVERT_POINTS, $params);
-            return (new VoucherResponseParser($response))->getResponse();
-        } catch (\Exception $e) {
-            return $e->getMessage();
-        }
-    }
-
-    public function history(array $params){
-        try {
-            
-            $response = $this->rest->post(StoreConstants::GET_VOUCHER_HISTORY, $params);
+            $response = $this->rest->post(StoreConstants::CONVERT_USER_POINTS, $params);
             return (new VoucherResponseParser($response))->getResponse();
         } catch (\Exception $e) {
             return $e->getMessage();

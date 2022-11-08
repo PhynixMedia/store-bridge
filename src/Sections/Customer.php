@@ -33,7 +33,7 @@ class Customer extends App
         }
     }
 
-    public function saveAddress(array $params)
+    public function setAddress(array $params)
     {
         try {
             $response = $this->rest->post(StoreConstants::CREATE_CUSTOMER_ADDRESS, $params);
@@ -43,44 +43,25 @@ class Customer extends App
         }
     }
 
-    public function enroll(array $params)
+    public function find(array $params)
     {
         try {
-            $response = $this->rest->post(StoreConstants::ENROLL_CUSTOMER, $params);
+            $response = $this->rest->post(StoreConstants::FIND_CUSTOMER, $params);
             return (new CustomerResponseParser($response))->getResponse();
         } catch (\Exception $e) {
             return $e->getMessage();
         }
     }
 
-    public function fetch(array $params)
+    public function voucher(array $params)
     {
         try {
-            $response = $this->rest->post(StoreConstants::GET_CUSTOMER, $params);
+            $response = $this->rest->post(StoreConstants::GET_USER_VOUCHER_HISTORY, $params);
             return (new CustomerResponseParser($response))->getResponse();
         } catch (\Exception $e) {
             return $e->getMessage();
         }
     }
 
-    public function auth(array $params)
-    {
-        try {
 
-            $response = $this->rest->post(StoreConstants::AUTH_USER_LOGIN, $params);
-            return (new CustomerResponseParser($response))->getResponse();
-        } catch (\Exception $e) {
-            return $e->getMessage();
-        }
-    }
-
-    public function reset(array $params)
-    {
-        try {
-            $response = $this->rest->post($this->setPath(StoreConstants::RESET_CUSTOMER_PASSWORD, $params));
-            return (new CustomerResponseParser($response))->getResponse();
-        } catch (\Exception $e) {
-            return $e->getMessage();
-        }
-    }
 }

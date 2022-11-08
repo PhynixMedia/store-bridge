@@ -24,7 +24,7 @@ class Deals extends App
     public function all(array $params){
         try {
             
-            $response = $this->rest->post(StoreConstants::GET_DEALS, $params);
+            $response = $this->rest->post(StoreConstants::FIND_DEALS, $params);
             return (new DealsResponseParser($response))->getResponse();
         } catch (\Exception $e) {
             return $e->getMessage();

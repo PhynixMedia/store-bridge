@@ -8,9 +8,9 @@ class StoreConstants
     /**
      * Endpoint Constants
      */
-    const API_BASE_URL          = 'https://app.feramy.com';
+    const API_BASE_URL          = 'https://rms.api.feramy.com';
     const API_LOCAL_BASE_URL    = 'http://localhost:8000';
-    const API_END_POINT         = '/api/v4';
+    const API_END_POINT         = '/api';
     const API_OAUTH2_POINT      = '/oauth/token';
     const TEST_MODE             = true;
 
@@ -36,60 +36,44 @@ class StoreConstants
     /**
      * PRODUCTS ENDPOINTS
      */
-    const GET_ALL_PRODUCTS                  = StoreConstants::API_END_POINT . '/products/list';  // companyid,
-    const GET_SINGLE_PRODUCT                = StoreConstants::API_END_POINT . '/products/get'; // companyid, productid, outletid?
-    const SEARCH_PRODUCTS                   = StoreConstants::API_END_POINT . '/products/search'; // missing
+    const GET_ALL_PRODUCTS                  = StoreConstants::API_END_POINT . '/store/list/products';
+    const GET_SINGLE_PRODUCT                = StoreConstants::API_END_POINT . '/store/fetch/products';
+    const FIND_PRODUCTS                     = StoreConstants::API_END_POINT . '/store/fetch/products';
 
-    /**
-     * SEARCH WITH FILTERS
-     */
-    const FIND_PRODUCTS_BY_CONDITION    = StoreConstants::API_END_POINT . '/products/list/by/condition';
-    const SEARCH_VIEWED_PRODUCTS        = StoreConstants::API_END_POINT . '/products/list/viewed';
-    const SEARCH_RELATED_PRODUCTS       = StoreConstants::API_END_POINT . '/products/list/related';
-    const SEARCH_PRODUCTS_BRAND         = StoreConstants::API_END_POINT . '/products/brands/list';
-    const SEARCH_PRODUCTS_BY_BRAND      = StoreConstants::API_END_POINT . '/products/brands/list/items';
 
     /**
      * CATEGORY ENDPOINTS
      */
-    const GET_ALL_CATEGORY              = StoreConstants::API_END_POINT . '/products/category/list';
-    const GET_PRODUCTS_BY_CATEGORY      = StoreConstants::API_END_POINT . '/products/category/list/items';
-
-    /**
-     * CUSTOMER
-     */
-    const AUTH_USER_LOGIN               = StoreConstants::API_END_POINT . '/customers/auth/login';
-    const CREATE_CUSTOMER               = StoreConstants::API_END_POINT . '/customers/create/account';
-    const CREATE_CUSTOMER_ADDRESS       = StoreConstants::API_END_POINT . '/customers/create/address';
-    const RESET_CUSTOMER_PASSWORD       = StoreConstants::API_END_POINT . '/customers/reset/password';
-    const GET_CUSTOMER                  = StoreConstants::API_END_POINT . '/customers/get/record';
-    const ENROLL_CUSTOMER               = StoreConstants::API_END_POINT . '/customers/auto/enroll/checkout';
+    const GET_ALL_CATEGORY              = StoreConstants::API_END_POINT . '/store/list/category';
+    const GET_SINGLE_CATEGORY           = StoreConstants::API_END_POINT . '/store/fetch/category';
 
     /**
      * ORDER ENDPOINTS
      */
-    const ORDER_CHECKOUT    =   StoreConstants::API_END_POINT . '/orders/checkout';
-    const PLACE_ORDER       =   StoreConstants::API_END_POINT . '/orders/create';
-    const SEARCH_ORDERS     =   StoreConstants::API_END_POINT . '/orders/search';
-    const GET_USER_ORDERS   =   StoreConstants::API_END_POINT . '/orders/list';
-    const GET_USER_ORDER    =  StoreConstants::API_END_POINT . '/orders/get';
+    const UPDATE_CUSTOMER_ORDER     =   StoreConstants::API_END_POINT . '/customers/update/order';
+    const GET_USER_ORDERS           =   StoreConstants::API_END_POINT . '/customers/find/order';
+    const CREATE_ORDER              =   StoreConstants::API_END_POINT . '/customers/create/order';
+
+    /**
+     * CUSTOMER
+     */
+    const CREATE_CUSTOMER               = StoreConstants::API_END_POINT . '/customers/create/customer';
+    const CREATE_CUSTOMER_ADDRESS       = StoreConstants::API_END_POINT . '/customers/create/contact';
+    const FIND_CUSTOMER                  = StoreConstants::API_END_POINT . '/customers/find/customer';
 
     /**
      * COUPONS
      */
-    const GET_COUPONS     = StoreConstants::API_END_POINT . '/coupons/available';
-
-    /**
-     * DEALS
-     */
-    const GET_DEALS     = StoreConstants::API_END_POINT . '/deals/available';
+    const FIND_COUPONS                   = StoreConstants::API_END_POINT . '/promo/find/coupon';
+    const FIND_DEALS                     = StoreConstants::API_END_POINT . '/promo/find/deals';
+    const GET_USER_VOUCHER_HISTORY       = StoreConstants::API_END_POINT . '/promo/list/voucher';
 
     /**
      * VOUCHERS
      */
-    const GET_POINTS            = StoreConstants::API_END_POINT . '/rewards/points';
-    const CONVERT_POINTS        = StoreConstants::API_END_POINT . '/rewards/points/convert';
-    const GET_VOUCHER_HISTORY   = StoreConstants::API_END_POINT . '/voucher/list';
+    const GET_USER_POINTS                = StoreConstants::API_END_POINT . '/rewards/find/points';
+    const CONVERT_USER_POINTS            = StoreConstants::API_END_POINT . '/rewards/convert/points';
+    
 
     /**
      * EXCEPTIONS

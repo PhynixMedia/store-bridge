@@ -23,7 +23,7 @@ class Coupon extends App
 
     public function all(array $params){
         try {
-            $response = $this->rest->post(StoreConstants::GET_COUPONS, $params);
+            $response = $this->rest->post(StoreConstants::FIND_COUPONS, $params);
             return (new CouponsResponseParser($response))->getResponse();
         } catch (\Exception $e) {
             return $e->getMessage();

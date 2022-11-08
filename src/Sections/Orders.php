@@ -30,11 +30,11 @@ class Orders extends App
      *
      * Place order parmaters from cart checkout
      */
-    public function place(array $params)
+    public function create(array $params)
     {
         try {
 
-            $response = $this->rest->post(StoreConstants::PLACE_ORDER, $params);
+            $response = $this->rest->post(StoreConstants::CREATE_ORDER, $params);
             return (new OrderResponseParser($response))->getResponse();
         } catch (\Exception $e) {
             return $e->getMessage();
@@ -47,11 +47,11 @@ class Orders extends App
      *
      * Place order parmaters from cart checkout
      */
-    public function checkout(array $params)
+    public function find(array $params)
     {
         try {
 
-            $response = $this->rest->post(StoreConstants::ORDER_CHECKOUT, $params);
+            $response = $this->rest->post(StoreConstants::GET_USER_ORDERS, $params);
             return (new OrderResponseParser($response))->getResponse();
         } catch (\Exception $e) {
             return $e->getMessage();
@@ -66,45 +66,15 @@ class Orders extends App
      *
      * Get order for user with the User ID passed
      */
-    public function search(array $params)
+    public function update(array $params)
     {
         try {
-            $response = $this->rest->post(StoreConstants::SEARCH_ORDERS, $params);
+            $response = $this->rest->post(StoreConstants::UPDATE_CUSTOMER_ORDER, $params);
             return (new OrderResponseParser($response))->getResponse();
         } catch (\Exception $e) {
             return $e->getMessage();
         }
     }
 
-    /**
-     * @param string $search
-     * @return |null
-     *
-     * Search for Order with Order ID
-     */
-    public function getMany(array $params)
-    {
-        try {
-            $response = $this->rest->post(StoreConstants::GET_USER_ORDERS, $params);
-            return (new OrderResponseParser($response))->getResponse();
-        } catch (\Exception $e) {
-            return $e->getMessage();
-        }
-    }
-
-    /**
-     * @param string $search
-     * @return |null
-     *
-     * Search for Order with Order ID
-     */
-    public function getOne(array $params)
-    {
-        try {
-            $response = $this->rest->post(StoreConstants::GET_USER_ORDER, $params);
-            return (new OrderResponseParser($response))->getResponse();
-        } catch (\Exception $e) {
-            return $e->getMessage();
-        }
-    }
+  
 }
