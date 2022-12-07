@@ -67,7 +67,7 @@ class StoreRest
 
         try
         {
-            return $this->client->post(StoreConstants::getHost() . $path . self::pager($paginate),
+            return $this->client->post(StoreConstants::getHost() . $path . '/router' .  self::pager($paginate),
             [
                 "headers" => self::setHeaders($this->token),
                 "body" => json_encode($params)
@@ -95,7 +95,7 @@ class StoreRest
 
         try
         {
-            return $this->client->put(StoreConstants::getHost() . $path . self::pager($paginate),
+            return $this->client->put(StoreConstants::getHost() . '/router' . $path . self::pager($paginate),
             [
                 "headers" => self::setHeaders($this->token),
                 "body" => json_encode($params)
