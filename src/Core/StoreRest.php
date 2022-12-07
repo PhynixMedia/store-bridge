@@ -44,7 +44,6 @@ class StoreRest
     {
         try
         {
-
             return $this->client->get(StoreConstants::getHost() . $path . self::pager($paginate));
         }catch(\GuzzleHttp\Exception\ClientException $e)
         {
